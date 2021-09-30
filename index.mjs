@@ -9,11 +9,13 @@ client.once("ready", () => {
   console.log("Bot is ready!");
 })
 
+const url = "https://api.github.com/repos/";
+
 client.on("messageCreate", async (message) => {
   const regex = /https?:\/\/github.com\/([\d\w-\.]+\/[\d\w-\.]+)/;
   const matches = message.content.match(regex);
   if (matches !== null) {
-    const repo = await fetch("https://api.github.com/repos/" + matches[1]).then(b => b.json());
+    const repo = await fetch(url + matches[1]).then(b => b.json());
     console.log(repo);
     if (repo.license === null) {
       message.reply("You don't have a license!");
