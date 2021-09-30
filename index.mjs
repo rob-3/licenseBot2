@@ -15,6 +15,9 @@ client.on("messageCreate", async (message) => {
   if (matches !== null) {
     const repo = await fetch("https://api.github.com/repos/" + matches[1]).then(b => b.json());
     console.log(repo);
+    if (repo.license === null) {
+      message.reply("You don't have a license!");
+    }
   }
 })
 
