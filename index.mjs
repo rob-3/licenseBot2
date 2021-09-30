@@ -22,3 +22,5 @@ client.on("messageCreate", async (message) => {
 })
 
 client.login("ODkzMjYzNTUyMjg5MzM3NDE1.YVY6gg.8_xV9PDlA_mqdTLD8z60vEO_1Sc");
+
+console.log('hello');
